@@ -57,7 +57,7 @@ def check_plagiarism(query_text):
         
         # Fallback to hardcoded path if folder doesn't exist
         if not os.path.exists(folder):
-            folder = r"C:\Users\pushk\OneDrive\Desktop\PLAG AND AI CONTENT DETECTOR PROJECT\APP\research data"
+            folder = "DIRECTORY OF RESERACH DATA FOLDER"
         
         print(f"DEBUG: Using research data folder: {folder}")
         
