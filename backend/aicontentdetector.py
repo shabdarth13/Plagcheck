@@ -12,7 +12,7 @@ def detect_ai_content(text):
         
         # Fallback to hardcoded path if file doesn't exist
         if not os.path.exists(data_path):
-            data_path = r"C:\Users\pushk\OneDrive\Desktop\PLAG AND AI CONTENT DETECTOR PROJECT\APP\AI CONTENT\Training_Essay_Data.csv"
+            data_path = "DIRECTORY WHERE Training_Essay_Data.csv IS STORED"
         
         print(f"DEBUG: Using AI content dataset: {data_path}")
         
