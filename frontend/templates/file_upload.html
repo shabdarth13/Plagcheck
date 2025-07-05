@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>File Upload - WriteRight</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        :root {
+            --primary: #8A2BE2;
+            --secondary: #4B0082;
+            --accent: #00F5FF;
+            --bg-dark: #0A041A;
+            --bg-card: #1e1336;
+            --text-primary: #FFFFFF;
+            --text-secondary: #B8B8B8;
+            --success: #00FF88;
+            --error: #FF4444;
+            --warning: #FFD700;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Courier New', monospace;
+            background: linear-gradient(135deg, var(--bg-dark) 0%, #1a0d2e 100%);
+            color: var(--text-primary);
+            min-height: 100vh;
+            padding: 20px;
+            position: relative;
+            overflow-x: hidden;
+        }
+
+        body::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grid" width="10" height="10" patternUnits="userSpaceOnUse"><path d="M 10 0 L 0 0 0 10" fill="none" stroke="%23333" stroke-width="0.5"/></pattern></defs><rect width="100" height="100" fill="url(%23grid)"/></svg>');
+            opacity: 0.1;
+        }
+        
+        .container {
+            background: var(--bg-card);
+            border-radius: 12px;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3);
+            border: 1px solid var(--primary);
+            width: 90%;
+            max-width: 900px;
+            padding: 40px;
+            margin: 20px auto;
+            position: relative;
+            z-index: 1;
+        }
+
+        .container::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(45deg, transparent, rgba(138, 43, 226, 0.1), transparent);
+            border-radius: 12px;
+            z-index: -1;
+        }
+
+        h1 {
+            color: var(--accent);
+            margin: 0 0 30px 0;
+            font-size: 2.5rem;
+            font-weight: 700;
+            text-align: center;
+            text-shadow: 0 0 10px var(--accent);
+        }
+        
+        .form-group {
+            margin-bottom: 25px;
+        }
+        
+        label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+            color: var(--text-primary);
+            font-size: 16px;
+        }
+
+        select {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid var(--primary);
+            border-radius: 8px;
+            font-size: 16px;
+            font-family: inherit;
+            background: rgba(10, 4, 26, 0.8);
+            color: var(--text-primary);
+            cursor: pointer;
+        }
+
+        select:focus {
+            outline: none;
+            border-color: var(--accent);
+            box-shadow: 0 0 0 3px rgba(0, 245, 255, 0.2);
+            background: rgba(10, 4, 26, 0.9);
+        }
+        
+        .file-input-container {
+            position: relative;
+            margin-top: 10px;
+        }
+        
+        .file-input-label {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            background: rgba(10, 4, 26, 0.3);
+            border: 2px dashed var(--primary);
+            border-radius: 12px;
+            padding: 50px;
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .file-input-label::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(45deg, transparent, rgba(0, 245, 255, 0.05), transparent);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .file-input-label:hover {
+            border-color: var(--accent);
+            background: rgba(0, 245, 255, 0.1);
+            box-shadow: 0 0 20px rgba(0, 245, 255, 0.2);
+        }
+
+        .file-input-label:hover::before {
+            opacity: 1;
+        }
+        
+        .file-input {
+            position: absolute;
+            width: 0.1px;
+            height: 0.1px;
+            opacity: 0;
+            overflow: hidden;
+            z-index: -1;
+        }
+        
+        .file-input-icon {
+            font-size: 4rem;
+            margin-bottom: 20px;
+            color: var(--accent);
+            text-shadow: 0 0 10px var(--accent);
+        }
+
+        .file-input-text {
+            font-size: 1.2rem;
+            color: var(--text-primary);
+            font-weight: 600;
+            margin-bottom: 10px;
+        }
+
+        .file-input-subtext {
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+        }
+        
+        .form-text {
+            display: block;
+            margin-top: 5px;
+            color: #7f8c8d;
+            font-size: 14px;
+            text-align: center;
+        }
+        
+        .btn {
+            display: inline-block;
+            background-color: #3498db;
+            color: white;
+            border: none;
+            text-decoration: none;
+            padding: 12px 30px;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 16px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            width: 100%;
+        }
+        
+        .btn:hover {
+            background-color: #2980b9;
+            transform: scale(1.02);
+        }
+        
+        .result {
+            margin-top: 30px;
+            padding: 25px;
+            background: rgba(30, 19, 54, 0.9);
+            border-radius: 12px;
+            border: 2px solid var(--accent);
+            box-shadow: 0 0 20px rgba(0, 245, 255, 0.3);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .result::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(45deg, transparent, rgba(0, 245, 255, 0.05), transparent);
+            z-index: -1;
+        }
+
+        .result h2 {
+            margin-top: 0;
+            color: var(--accent);
+            font-size: 1.8rem;
+            text-shadow: 0 0 10px var(--accent);
+            margin-bottom: 20px;
+        }
+
+        .result-content {
+            color: var(--text-primary);
+            font-size: 16px;
+            line-height: 1.6;
+        }
+
+        .result-content strong {
+            color: var(--accent);
+            text-shadow: 0 0 5px var(--accent);
+        }
+        
+        .navigation {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 30px;
+            padding-top: 20px;
+            border-top: 1px solid #eee;
+        }
+        
+        .nav-link {
+            color: #3498db;
+            text-decoration: none;
+            font-weight: 600;
+            transition: color 0.3s;
+            display: flex;
+            align-items: center;
+        }
+        
+        .nav-link:hover {
+            color: #2980b9;
+        }
+        
+        footer {
+            text-align: center;
+            margin-top: 40px;
+            color: #7f8c8d;
+            font-size: 0.9rem;
+        }
+        
+        .file-name {
+            margin-top: 10px;
+            font-weight: 600;
+            color: #3498db;
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>File Upload Analysis</h1>
+        
+        <form method="POST" enctype="multipart/form-data" class="analysis-form">
+            <div class="form-group">
+                <label for="option">Choose analysis type:</label>
+                <select id="option" name="option">
+                    <option value="Plagiarism Detector">Plagiarism Detector (Local + Web)</option>
+                    <option value="Web Plagiarism Detector">Web Plagiarism Detector Only</option>
+                    <option value="AI Content Detector">AI Content Detector</option>
+                </select>
+            </div>
+            
+            <div class="form-group">
+                <label for="file">Upload a .txt file:</label>
+                <div class="file-input-container">
+                    <label for="file" class="file-input-label">
+                        <span class="file-input-icon">📄</span>
+                        <span class="file-input-text">Choose a file or drag it here</span>
+                    </label>
+                    <input type="file" id="file" name="file" accept=".txt" class="file-input" required>
+                    <div id="file-name" class="file-name"></div>
+                </div>
+                <small class="form-text">Only .txt files are supported</small>
+            </div>
+            
+            <button type="submit" class="btn">Analyze File</button>
+        </form>
+        
+        {% if result %}
+        <div class="result">
+            <h2>Result:</h2>
+            <div class="result-content">{{ result|safe }}</div>
+        </div>
+        {% endif %}
+        
+        <div class="navigation">
+            <a href="{{ url_for('index') }}" class="nav-link">← Back to Home</a>
+            <a href="{{ url_for('text_input') }}" class="nav-link">Switch to Text Input →</a>
+        </div>
+        
+        <footer>
+            <p>Plagiarism &amp; AI Content Detector &copy; 2023</p>
+        </footer>
+    </div>
+    
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const fileInput = document.getElementById('file');
+            const fileName = document.getElementById('file-name');
+            const fileLabel = document.querySelector('.file-input-text');
+            
+            fileInput.addEventListener('change', function() {
+                if (this.files && this.files[0]) {
+                    const file = this.files[0];
+                    if (!file.name.endsWith('.txt')) {
+                        alert('Please upload only .txt files');
+                        this.value = '';
+                        fileName.style.display = 'none';
+                        fileLabel.textContent = 'Choose a file or drag it here';
+                    } else {
+                        fileName.textContent = file.name;
+                        fileName.style.display = 'block';
+                        fileLabel.textContent = 'File selected';
+                    }
+                }
+            });
+        });
+    </script>
+</body>
+</html>
+
+
