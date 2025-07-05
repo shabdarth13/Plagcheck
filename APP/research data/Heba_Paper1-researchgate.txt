@@ -1,191 +1,0 @@
-See discussions, stats, and author profiles for this publication at: https://www.researchgate.net/publication/392693839
-Generalized Estimation of Stress-Strength Reliability P(X > Y)
-Preprint · June 2025
-DOI: 10.13140/RG.2.2.12135.97440
-
-CITATIONS	READS
-0	33
-2 authors, including:
-Omar Mohammad Eidous Yarmouk University
-84 PUBLICATIONS   590 CITATIONS   
-SEE PROFILE
-All content following this page was uploaded by Omar Mohammad Eidous on 14 June 2025.
-The user has requested enhancement of the downloaded file.
-Generalized Estimation of Stress-Strength Reliability  
- 	 	 	 
-     Omar M. Eidous             and            Hibah A. AL-Tarabsheh          omarm@yu.edu.jo                       0000001002@alumni.yu.edu.jo 
-Professor of Statistics  
-Department of Statistics - Yarmouk University 
-Irbid – Jordan 
- 
- 
-Abstract 
- 
-This paper focuses on the point estimation of the stress-strength reliability coefficient  in the case of two distributions that their functional forms are known but 
-depend on unknown parameters. Previous studies in this field estimated  by evaluating the exact value of the double integral and then estimating the apparent parameter using methods such as maximum likelihood estimation. Due to the large number of candidate distributions available for data modeling, many research papers addressing this issue have emerged over the past three decades. In this paper, we establish a general model for , which is applicable to any pair of continuous statistical distributions. The estimation process led to three new estimators for , all of which rely on the cumulative distribution functions of the assumed random variables. The consistency property for each estimator is established and also their performances for finite sample sizes are investigated by conducting a limited simulation study. The numerical results demonstrated the effectiveness of the proposed method, comparing to the current estimators, the performances of the proposed estimators is very promising. Although the generality of the model may lead to some loss of efficiency, this loss is small in most cases. 
- 
-Key words: Stress-Strength reliability; Point Estimation Method; Expectation; Parametric distributions; Relative bias; Relative mean square error; Efficiency. 
-MSC: 62F10; 62F12. 
- 
- 
- 
-1. Introduction 
-Reliability plays a vital role in the economic feasibility of systems, which refers to the probability that a product, system, or service will perform its intended function satisfactorily for a certain period or in a specific environment without failure. Small changes in the assumed models of random variables  (strength) and  (stress) can significantly affect the probability of failure. The strength-stress analysis models this scenario. The strength of the component is described by a random variable , while the stress it is subjected to is described by another random variable . When the applied stress exceeds the strength of the component, failure occurs. The reliability coefficient can be expressed as , which is the probability that the strength exceeds the stress. This reliability parameter is a vital concept in various engineering fields that deal with material strength, structural integrity, and system design under stress.. It also has diverse applications, such as rocket engines, earthquake resistance, and the response of leprosy patients to drugs (Kotz et al., 2003).  
-Let  and be two random variables with continuous probability density functions (pdfs)  and  respectively, where  and  are unknown parameters, each of which may be a vector. For more convenience, take  and  and let  be the joint pdf of  and, then the reliability coefficient   is expressed as,  
- 
-If  and are two independent random variables, then 
- 
-It is important to note that the coefficient  is an unknown parameter because the result of any of the previous integrals, when exist, is a function of the parameters   and . Let  be a random sample drawn from  and  be another independent random sample from . The stress-strength parameter  can be estimated using two main approaches, which are parametric and non-parametric methods. In the parametric method, we assume that the shape of the data distribution is known, but it relies on unknown parameters that need to be estimated. In this case, these parameters, and thus parameter  are usually estimated using classical methods such as, maximum likelihood (ML) method, method of moments and uniformly minimum variance unbiased method. In contrast, the non-parametric method is used when the shape of distribution is unknown or difficult to determine.  
- 
-Some researchers have used non-parametric methods for statistical inferences on .  Kim et al. (1994) investigated  in cases where censored observations occur for the strength variable, without assuming knowledge of stress or strength distributions. Baklizi and Eidous (2006) examined both point and interval estimation of  using kernel density estimators for the distributions of stress () and strength (). Eidous and Baklizi (2004) Eidous and Baklizi (2004) and Montoyal and Rubio (2014) discussed the same problem when  and  are not independent. The well-known non-parametric estimator frequently used is the Mann-Whitney estimator () (Lehmann, 1975), which is given by,  
- 
-where, if  and zero otherwise. This estimator has been included in our simulation study in Section (5) of this paper for comparison purposes. 
-Many studies have employed parametric approaches to estimate  under different distributions, including exponential (Baklizi, 2003), generalized exponential (Kundu and Gupta, 2005; Raqab et al., 2008), Weibull (Kundu and Raqab, 2009), Burr type III (Mokhlis, 2005), generalized Pareto (Rezaeia et al., 2010), double Lomax (Punathumparambath, 2011), twoparameter Weibull model based on records (Baklizi, 2012), generalized logistic (Asgharzadeh et al., 2013), inverse Rayleigh (Rao et al., 2013), exponentiated Fréchet (Inverse Weibull) (Rao et al., 2016), two-parameter generalized exponential (Asgharzadeh et al., 2017), exponentiated Fréchet distribution using Type-II censored data (Nadeb et al., 2019), Rayleigh (Abu-Moussa et al., 2021), inverse Rayleigh (Kalaf et al., 2021), Rayleigh and half-normal (Alamri et al., 2021), generalized Gompertz (Ciftci et al., 2023) and two-parameter Pareto distribution (Long and Jiang). Recently, Quintino et al. (2024a) examined  by considering some asymmetric distributions and Quintino et al. (2024b) estimated  under Birnbaum–Saunders Components, obtained a general results using a simulation and real data.  
-Studies have advanced in the analysis of stress strength reliability - as we have seen - by presenting new distributions, estimation methods, and inferential techniques, making their applications broader in various scientific and industrial fields. This has enriched the understanding of strength-stress analysis by integrating diverse perspectives and methodologies. Additionally, there are many studies that have introduced other distributions. Besides the references mentioned, readers can refer to the sources within them for further studies in this field. 
-Traditionally, most studies that used the parametric approach to estimate  imposed certain constraints on the parameters of the assumed pair of distributions (see for example, Rezaeia et al., 2010 and Asgharzadeh et al., 2013). Although such assumptions allow for the precise evaluation of the integral that appears in the form of , and thus facilitate the estimation process, these assumptions diminish the practical significance of these distributions. Without these constraints, the evaluation of the integral remains complex, making the estimation process neither straightforward nor simple.  
-In this paper, we proposed a new and general technique for estimating  by expressing the integral of  as the expectation of a certain function. Instead of estimating the integral directly, we estimate the resulting expectations using the statistical method of moments. The resulting estimators are given in a general form, allowing their use regardless of the assumed distributions and without imposing any restrictions on their parameters. 
-2.  General Model for    
-The reliability measure of the stress-strength  for the independent random variables  and can be expressed as follows, 
- 
-The internal integral is a cumulative distribution function (CDF) of , which is denoted as . Therefore, we can rewrite as follows,                             
- 
-Moreover,  can be rewritten as follows, 
- 
-Since the internal integral is , then we get, 
- 
-Accordingly, both  and  can be expressed as an expected value as follows, 
-		 
- 
- 
-Since , we can define a more general formulation for  by taking the average of  and . That is, 
- 
-In terms of expected value,  can be expressed as follows,  
- 
-Note: The expression  represents the expected value (mean) of the CDF of  evaluated at . Similarly,  represents the expected value (mean) of the CDF of  at . 
- 
- 
-3.  Estimation of  
-Throughout this paper, we assume that  and  are the maximum likelihood (ML) estimators of  and  respectively. The quantity  
- 
-represents the mean of . To estimate , we employ the method of moments while incorporating  as the ML estimator of . Given a random sample , we estimate  using the sample mean of  leading to the estimator, 
- 
-Here, the function  is the CDF of a random variable  evaluated at each  using the ML estimator  of  that obtained from the second sample . Applying the same technique, we estimate the quantity  by, 
- 
-The function  is the CDF of a random variable  evaluated at each  using the ML estimator  of  that obtained from the first sample  . Finally, we estimate the quantity 
- by averaging  and  , leading to, 
- 
-This estimator combines the information from both, providing a balanced estimator for . To use the above three estimators of , the CDFs of  and , as well as the ML estimators of  and  need to be determined. It is worth noting that the case where no information is available about the shapes of the two distributions has been discussed by Eidous (2025), who recommended nonparametric methods, specifically, histogram and kernel density estimators, for estimating . 
-4. Consistency of the Estimators   and   
-To establish the consistency of estimators ,  and ,, we need to show that each one of them converges in probability to . Assume that  is finite, then using weak law of large numbers (WLLN) to obtain, 
- 
-Given that , and assume that  is a continuous in , then by using continuous mapping theorem, 
- 
-for each  which implies, 
- 
-Therefore, 
- 
-Because   then by using Slutsky’s theorem we obtain, 
- 
-Similarly to the above discussion, and by assuming that is finite and continuous in 
-, we can easily show that  when . Additionally, we can combine both results to show that . 
-This proves that the sample means of  and  are consistent estimators of  and  respectively, thereby establishing the consistency of  ,  
-and  as estimators of . 
-5.  Simulation Study for Evaluating Estimators of  
- 
-A Simulation study is conducted to compare and evaluate the performance of the proposed estimators ,  and  of  described in Section (3). All simulation results are calculated using Mathematica Version 7 for sample sizes  and  The data  for the random variable  and  for the random variable  
-are generated from three different pair of distributions: normal, Weibull and generalizedPareto. For each pair of distributions, two different parameter settings are considered to ensure that one of the two values of  less than 0.5 and the other one is greater than 0.5 
-toward 1. Let ,  and  denotes the normal, Weibull and generalizedPareto distributions respectively, each characterized by two parameters. We examine the following cases: 
-Normal: 
-• Case (1):   and , with the exact . 
-• Case (2):   and , with the exact  
-Weibull: 
-• Case (1):  and , with the exact . ? Case (2):  and  , with the exact . 
-Generalized-Pareto: 
-• Case (1):  and  with the exact . ? Case (2):  and  with the exact . 
-By selecting normal (symmetric, baseline case), Weibull (skewed, reliability-focused) and generalized-Pareto (extreme values, heavy tails), our simulation study effectively tests estimator performance across a wide range of realistic data scenarios. This ensures that the conclusions drawn are robust, generalizable, and applicable to diverse practical problems. For this simulation study, other scenarios and cases were considered, including sample sizes smaller and larger than those used in this study. Additionally, cases for the three distributions with different parameter values were examined to ensure both an increase and a decrease in the value of parameter . However, we found that the conclusions drawn in this study remain consistent, and therefore, we have limited the inclusion, only, to the cases presented in this study. 
-For each combination of  and parent distributions, 1000 independent replications of samples   and  are generated (i.e. ).  
-The proposed estimators together with the nonparametric Mann-Whiteney estimator,  (see Section 1) are considered. Furthermore, the ML estimators of  that previously developed in the literature in the case of normal, Weibull and generalized-Pareto distributions are also included. These estimators are denoted as (Jacobs et al., 2015),  (McCool, 1991) and (Rezaei et al., 2010), with their respective formulas given below: 
-Jacobs et al. (2015) estimator with pair normal distributions: 
- 
-McCool (1991) estimator with pair Weibull distributions (): 
- 
-Rezaei et al. (2010) estimator with pair generalized-Pareto distributions (): 
- 
-where  and  . 
-The investigation and comparison of these estimators are based on their relative bias (), relative mean square error () and efficiency () of with respect to Mann-Whiteney estimator, . These measures are computed by using the following formulas, 
- 
-where 
- 
-Here,  represents the value of the estimator computed for a given sample at iteration , where, . 
-6. Simulation Results 
-The simulation results, presented in Tables 1-3, lead to the following general conclusions: 
-• For all estimators considered, the absolute relative bias (RB) tends to decrease as the sample size increases. Similarly, the root mean square error (RMSE) also declines with larger samples, indicating improved estimator performance with increasing sample size. 
-• While the performance of the Mann-Whitney estimator  is generally acceptable, the other estimators outperform it across all cases considered. 
-• The efficiency (EFF) values for all estimators are greater than 1, suggesting that they outperform the Mann-Whitney estimator, . This result is expected since the MannWhitney estimator is non-parametric and does not rely on distributional assumptions. 
-• Among the three proposed estimators   and  performs better than  when 
-the true value of  is small, while the reverse holds when  is large. The estimator   provides a balanced performance between  and , regardless of whether  is small or large. In general, the proposed estimator  performs well across different cases and sample sizes. 
-• Based on RMSE and EFF values, the estimator  demonstrates the best performance among all considered estimators. This is likely because  is derived using the exact value of   under the assumption of interested distribution. However, at least one of the proposed estimators yield results similar to , particularly as sample sizes increase. This supports the effectiveness of the general estimation model for . 
-In conclusion and despite the fact that the three estimators developed in the literature for estimating  —namely,  (for normal distributions),  (for Weibull distributions), and  (for generalized-Pareto distributions)—each perform better than the others within their respective distribution contexts, their applicability remains limited. This is because each estimator is only valid under specific dependence distributions. Furthermore, some of these estimators impose additional restrictions on the parameters of those distributions. For instance,  can only be applied to paired Weibull distributions when the two shape parameters are equal. The same assumption is required for . In contrast, the proposed estimators place no such restrictions on distribution parameters. They only require that the distribution parameters be estimated using any reliable method, such as the maximum likelihood method. 
-7. Discussion  
-In the literature on estimating the stress-strength reliability coefficient , we encountered numerous studies, potentially in the dozens or even hundreds. While the practical significance of this topic is undeniable, many of these studies exhibit a high degree of similarity, with the primary distinction being the choice of the assumed pair of statistical distributions, often drawn from the same family. In this paper, we introduce a general formulation for  and propose novel estimators for this formulation. These estimators are versatile, applicable to any pair of statistical distributions, even those from different families, without the limitations commonly found in traditional methods. In addition, we show that the proposed estimators satisfy an essential property of any good estimator: consistency. Despite this, the performance and effectiveness of these estimators, when applied to finite sample sizes, do not yet match the efficiency of existing estimators, as demonstrated in the simulation study. However, a crucial takeaway is that the estimators found in the literature have a very narrow scope of application, relying on strict assumptions that may not always hold in practical scenarios. On the other hand, the proposed estimators proposed in offer a significant advantage in terms of their general applicability, making them a valuable tool for a broader range of problems in stressstrength reliability estimation. Furthermore, the technique discussed in this paper and the resulting estimators can be generalized to various sampling techniques, like, ranked set sampling, records data, Type I and Type II censored data. While we cannot directly apply the same estimators in such cases, we believe that conducting further studies in this field is of significant importance. 
- 
- 
-Table (1). Relative Bias (RB), relative root of mean square error (RMSE) and efficiency (EFF) of the different estimators of . The data are simulated from paired normal distributions. 
-       (50, 50)  Case (1),  R =  0.9192 RB 0.0008 -0.0009 0.0001 -0.0005 -0.0002 RMSE 0.0279 0.0273 0.0277 0.0274 0.0273 EFF 1.000 1.047 1.013 1.039 1.045 (100, 200) RB -0.0004 -0.0009 -0.0006 -0.0008 -0.0007 RMSE 0.0202 0.0193 0.0202 0.0193 0.0196 EFF 1.000 1.099 1.001 1.098 1.064   Case (2),  R =  0.3581 (50, 50) RB -0.0057 -0.0084 -0.0087 -0.0054 -0.0070 RMSE 0.1686 0.1524 0.1525 0.1684 0.1564 EFF 1.000 1.224 1.222 1.002 1.162 (100, 200) RB 0.0008 0.0014 0.0013 0.0009 0.0011 RMSE 0.0922 0.0806 0.0805 0.0921 0.0842 EFF 1.000 1.310 1.310 1.003 1.199  
-Table (2). Relative Bias (RB), relative root of mean square error (RMSE) and efficiency (EFF) of the different estimators of . The data are simulated from paired Weibul distributions. 
-         Case (1),  R =  0.9091 (50, 50) RB -0.0019 -0.0020 -0.0017 -0.0021 -0.0019 RMSE 0.0336 0.0185 0.0332 0.0186 0.0231 EFF 1.000 3.24 1.008 3.21 2.083 (100, 200) RB 0.0001 -0.0005 0.0003 -0.0005 -0.0001 RMSE 0.0222 0.0113 0.0220 0.0113 0.0145 EFF 1.000 3.86 1.011 3.850 2.319   Case (2),  R =  0.2857 (50, 50) RB 0.0059 0.0109 0.0165 -0.0004 0.0081 RMSE 0.1866 0.1482 0.1545 0.1814 0.1590 EFF 1.000 1.584 1.459 1.058 1.376 (100, 200) RB -0.0025 -0.0021 -0.0003 -0.0045 -0.0024 RMSE 0.1039 0.0865 0.0889 0.1020 0.0914 EFF 1.000 1.444 1.367 1.038 1.293  
- 
- 
- 
-Table (3). Relative Bias (RB), relative root of mean square error (RMSE) and efficiency (EFF) of the different estimators of . The data are simulated from paired generalized-Pareto distributions. 
-         Case (1),  R =  0.8889 (50, 50) RB -0.0002 -0.0007 0.0002 -0.0009 -0.0004 RMSE 0.0374 0.0226 0.0369 0.0227 0.0269 EFF 1.000 2.740 1.024 2.710 1.932 (100, 200) RB -0.0017 -0.0012 -0.0016 -0.0013 -0.0015 RMSE 0.0262 0.0135 0.0260 0.0136 0.0176 EFF 1.000 3.740 1.011 3.720 2.217   Case (1),  R =  0.3333 (50, 50) RB -0.0026 -0.0009 0.0019 -0.0046 -0.0014 RMSE 0.1612 0.1302 0.1345 0.1572 0.1387 EFF 1.000 1.533 1.438 1.052 1.352 (100, 200) RB 0.0037 0.0016 0.0050 0.0005 0.0027 RMSE 0.0947 0.0812 0.0839 0.0918 0.0847 EFF 1.000 1.361 1.275 1.064 1.250  
- 
- 
- 
- 
- 
-Acknowledgment 
-The authors would like to thank the editor and anonymous reviewers for their valuable comments and suggestions, which have greatly improved the quality and clarity of this manuscript. 
- 
- 
- 
-References 
-Abu-Moussa, M. H., Abd-elfattah, A. M. and Hafez, E.H. (2021). Estimation of stress-strength parameter for Rayleigh distribution based on progressive type-II censoring. Information Sciences Letters, 10 (1), 101-110. 
-Alamri, O., El-Raouf, M., Ismail, E., Almaspoor, Z., Alsaedi, B., Khosa, S. and Yusuf, M.  (2021). Estimate stress-strength reliability model using Rayleigh and half-normal distribution. Computational Intelligence and Neuroscience. https://doi.org/10.1155/2021/7653581. 
-Asgharzadeh, A., Valiollahi, R. and Raqab, M. Z. (2013). Estimation of the stress-strength reliability for the generalized logistic distribution. Statistical Methodology, 15, 73-94. 
-Asgharzadeh, A., Valiollahi, R. and Raqab, M. Z. (2017). Estimation of Pr(Y<X) for the two parameter generalized exponential records. Communications in Statistics - Simulation and Computation, 46(1), 371–394. 
-Baklizi, A. (2003). Confidence intervals for P(X<Y) in the exponential case with common location parameter. Journal of Modern Applied Statistical Methods, 2 (2), 340-349. 
-Baklizi, A. (2012). Inference on Pr(Y < X) in the two-parameter Weibull model based on records. International Scholarly Research Network. doi:10.5402/2012/263612. 
-Baklizi, A. and Eidous, O. (2006). Nonparametric estimation of P(X<Y) using Kernel methods. Metron-International Journal of Statistics. 64(1), 47-60. 
-Ciftci, F., Saracoglu, B., Akdam, N. and Akogan, Y. (2023).  Estimation of stress-strength reliability for generalized Gompertz distribution under progressive type-II censoring. Hacettepe Journal of Mathematics and Statistics, 52(5):1379-1395. 
-Eidous, O. (2025). Nonparametric Estimation of . To appear in Communications in Statistics – Theory and Methods. 
-Eidous, O.  and Baklizi, A. (2004). Kernel-based estimation of P(X less than Y) with paired data. Journal of Modern Applied Statistical Methods, 3(1), 143-148.  
-Jacobs, R., Bekker, A., Voetl, H. and Braakl, C. (2015). Parametric estimation of P(X>Y) for normal distributions in the context of probabilistic environmental risk assessment. Peer J, 3, e1164. DOI 10.7717/peerj.1164. 
-Kalaf, B. A., Raheem, S. H. and Salman, A. N. (2021). Estimation of the reliability system in model of stress-strength according to distribution inverse Rayleigh. Periodicals of Engineering and Natural Sciences, 9(2),524-  533. 
-Kim, J. J., Na, M. H., Kim, J. H., Jeong, H. S. and Lee, S. Y.  (1994). Nonparametric estimation of reliability in strength-stress model for the censored data. Journal of the Korean Society for Quality Management, 22(3), 99-110. 
-Kotz, S., Lumelskii, Y.  and  Pensky, M. (2003). The stress-strength model and its generalizations. World Scientific Publishing. Singapore. 
-Kundu D., Raqab M. Z. (2009). Estimation of R = P(Y<X) for three parameter Weibull distribution. Statistics Probability Letters, 79(17), 1839– 1846. 
-Kundu, D. and Gupta, R. D. (2005). Estimation of P(Y<X) for the generalized exponential distribution. Metrika, 61(3), 291–308. 
-Lehmann, E. L. (1975). Nonparametric: Statistical methods based on ranks. Holden Day, San Francisco. 
-Long, B. and Jiang, Z. (2023). Estimation and prediction for two-parameter Pareto distribution based on progressively double Type-II hybrid censored data. AIMS Mathematics, 8(7), 1533215351. 
-McCool J.I. (1991). Inference on P(Y<X) in the Weibull case. Communications in Statistics - Simulation and Computations. 20, 129–148. 
-Mokhlis, N. A. (2005). Reliability of a stress-strength model with Burr type III distributions. Communications in Statistics - Theory and Methods, 34(7), 1643–1657. 
-Montoyal, J. A. and Rubio, F. J. (2014). Nonparametric inference for P(X<Y) with paired variables. Journal of Data Science, 12, 359-375. 
-Nadeb, H., Torabi, H. and Zhao, Y. (2019). Stress-strength reliability of exponentiated Fre´chet distributions based on Type-II censored data. Journal of Statistical Computation and Simulation, 89(10), 1863–1876. 
-Punathumparambath, Bindu (2011). Estimation of P(X>Y) for the double Lomax distribution. ProbStat Forum, 4, 1-11. 
-Quintino, F.; Rathie, P.; Ozelim, L.; Fonseca, T. (2024a). Codes for Estimation of P(X < Y) stress– strength reliability measures for a class of asymmetric distributions: The case of threeparameter p-max stable laws. Zenodo. https://zenodo.org/records/11416972. 
-Quintino, F.; Ozelim, L., Fonseca, T., Rathie, P. (2024b). Stress–strength reliability of P(X < Y) for Birnbaum–Saunders components: A general result, simulations and real data set applications. Modelling, 5(1), 223-237. 
-Rao, G. S., Kantam, R. R. L. Rosaiah K. and Reddy J. P. (2013). Estimation of stress-strength reliability from inverse Rayleigh distribution. Journal of Industrial and Production Engineering, 30(4), 254–263. 
-Rao, G. S., Rosaiah, K. and Babu, M. S. (2016). Estimation of stress-strength reliability from exponentiated Fréchet distribution. The International Journal of Advanced Manufacturing Technology, 86, 3041–3049. 
-Raqab, M. Z., Madi, M. D. and Kundu, D. (2008). Estimation of P(Y<X) for the 3- parameter generalized exponential distribution. Communications in Statistics - Theory and Methods, 37, 2854–2864. 
-Rezaeia, S., Tahmasbib, R. and Mahmoodi, M. (2010). Estimation of P(Y<X) for generalized Pareto distribution. Journal of Statistical Planning and  Inference, 140, 480–494. 
- 
-View publication stats
-2 
- 
-
-2 
- 
-
-
-
