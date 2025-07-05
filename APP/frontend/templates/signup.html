@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign Up - WriteRight</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        :root {
+            --primary: #8A2BE2;
+            --secondary: #4B0082;
+            --accent: #00F5FF;
+            --bg-dark: #0A041A;
+            --bg-card: #1e1336;
+            --text-primary: #FFFFFF;
+            --text-secondary: #B8B8B8;
+            --success: #00FF88;
+            --error: #FF4444;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Courier New', monospace;
+            background: linear-gradient(135deg, var(--bg-dark) 0%, #1a0d2e 100%);
+            color: var(--text-primary);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        body::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grid" width="10" height="10" patternUnits="userSpaceOnUse"><path d="M 10 0 L 0 0 0 10" fill="none" stroke="%23333" stroke-width="0.5"/></pattern></defs><rect width="100" height="100" fill="url(%23grid)"/></svg>');
+            opacity: 0.1;
+        }
+
+        .container {
+            background: var(--bg-card);
+            border-radius: 12px;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3);
+            border: 1px solid var(--primary);
+            width: 90%;
+            max-width: 450px;
+            padding: 40px;
+            margin: 20px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .container::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(45deg, transparent, rgba(138, 43, 226, 0.1), transparent);
+            border-radius: 12px;
+            z-index: -1;
+        }
+
+        h1 {
+            color: var(--accent);
+            margin: 0 0 30px 0;
+            font-size: 2.2rem;
+            font-weight: 700;
+            text-align: center;
+            text-shadow: 0 0 10px var(--accent);
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+            color: var(--text-primary);
+        }
+
+        input[type="text"], input[type="email"], input[type="password"] {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid var(--primary);
+            border-radius: 8px;
+            font-size: 16px;
+            font-family: inherit;
+            box-sizing: border-box;
+            background: rgba(10, 4, 26, 0.8);
+            color: var(--text-primary);
+        }
+
+        input:focus {
+            outline: none;
+            border-color: var(--accent);
+            box-shadow: 0 0 0 3px rgba(0, 245, 255, 0.2);
+            background: rgba(10, 4, 26, 0.9);
+        }
+
+        .btn {
+            width: 100%;
+            background: linear-gradient(45deg, var(--primary), var(--secondary));
+            color: white;
+            border: none;
+            padding: 12px;
+            border-radius: 8px;
+            font-weight: 600;
+            font-size: 16px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            margin-top: 10px;
+            box-shadow: 0 0 20px rgba(138, 43, 226, 0.3);
+        }
+
+        .btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 25px rgba(138, 43, 226, 0.5);
+        }
+
+        .alert {
+            padding: 15px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            font-weight: 500;
+            border-left: 4px solid;
+        }
+
+        .alert-error {
+            background-color: rgba(255, 68, 68, 0.1);
+            color: var(--error);
+            border-left-color: var(--error);
+        }
+
+        .alert-success {
+            background-color: rgba(0, 255, 136, 0.1);
+            color: var(--success);
+            border-left-color: var(--success);
+        }
+
+        .login-link {
+            text-align: center;
+            margin-top: 20px;
+            padding-top: 20px;
+            border-top: 1px solid var(--primary);
+        }
+
+        .login-link a {
+            color: var(--accent);
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s;
+        }
+
+        .login-link a:hover {
+            text-shadow: 0 0 5px var(--accent);
+        }
+
+        .home-link {
+            text-align: center;
+            margin-top: 15px;
+        }
+
+        .home-link a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-size: 14px;
+            transition: all 0.3s;
+        }
+
+        .home-link a:hover {
+            color: var(--accent);
+        }
+
+        .password-requirements {
+            font-size: 12px;
+            color: var(--text-secondary);
+            margin-top: 5px;
+        }
+
+        .form-text {
+            font-size: 12px;
+            color: var(--text-secondary);
+            margin-top: 5px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Create Account</h1>
+        
+        {% with messages = get_flashed_messages(with_categories=true) %}
+            {% if messages %}
+                {% for category, message in messages %}
+                    <div class="alert alert-{{ 'error' if category == 'error' else 'success' }}">
+                        {{ message }}
+                    </div>
+                {% endfor %}
+            {% endif %}
+        {% endwith %}
+        
+        <form method="POST">
+            <div class="form-group">
+                <label for="username">Username</label>
+                <input type="text" id="username" name="username" required minlength="3" maxlength="20">
+                <div class="form-text">Must be 3-20 characters long</div>
+            </div>
+            
+            <div class="form-group">
+                <label for="email">Email Address</label>
+                <input type="email" id="email" name="email" required>
+                <div class="form-text">We'll never share your email with anyone</div>
+            </div>
+            
+            <div class="form-group">
+                <label for="password">Password</label>
+                <input type="password" id="password" name="password" required minlength="6">
+                <div class="password-requirements">Must be at least 6 characters long</div>
+            </div>
+            
+            <div class="form-group">
+                <label for="confirm_password">Confirm Password</label>
+                <input type="password" id="confirm_password" name="confirm_password" required>
+            </div>
+            
+            <button type="submit" class="btn">Create Account</button>
+        </form>
+        
+        <div class="login-link">
+            Already have an account? <a href="{{ url_for('login') }}">Log in here</a>
+        </div>
+        
+        <div class="home-link">
+            <a href="{{ url_for('index') }}">← Back to Home</a>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const password = document.getElementById('password');
+            const confirmPassword = document.getElementById('confirm_password');
+            
+            function validatePassword() {
+                if (password.value !== confirmPassword.value) {
+                    confirmPassword.setCustomValidity("Passwords don't match");
+                } else {
+                    confirmPassword.setCustomValidity('');
+                }
+            }
+            
+            password.addEventListener('change', validatePassword);
+            confirmPassword.addEventListener('keyup', validatePassword);
+        });
+    </script>
+</body>
+</html>

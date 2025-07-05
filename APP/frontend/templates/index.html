@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WriteRight - AI Content Authenticator</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        :root {
+            --primary: #8A2BE2;
+            --secondary: #4B0082;
+            --accent: #00F5FF;
+            --bg-dark: #0A041A;
+            --bg-card: #1e1336;
+            --text-primary: #FFFFFF;
+            --text-secondary: #B8B8B8;
+            --success: #00FF88;
+            --warning: #FFD700;
+            --error: #FF4444;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Courier New', monospace;
+            background: var(--bg-dark);
+            color: var(--text-primary);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+        
+        .container {
+            background-color: white;
+            border-radius: 12px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            width: 90%;
+            max-width: 800px;
+            padding: 40px;
+            margin: 20px;
+        }
+        
+        header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+        
+        h1 {
+            color: #2c3e50;
+            margin: 0;
+            font-size: 2.5rem;
+            font-weight: 700;
+        }
+        
+        .subtitle {
+            color: #7f8c8d;
+            font-size: 1.1rem;
+            margin-top: 10px;
+        }
+        
+        .options {
+            display: flex;
+            gap: 30px;
+            margin: 40px 0;
+        }
+        
+        @media (max-width: 768px) {
+            .options {
+                flex-direction: column;
+            }
+        }
+        
+        .option-card {
+            flex: 1;
+            background-color: #f8f9fa;
+            border-radius: 10px;
+            padding: 30px;
+            text-align: center;
+            transition: all 0.3s ease;
+            border: 1px solid #e9ecef;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .option-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+            border-color: #3498db;
+        }
+        
+        .option-card h2 {
+            color: #3498db;
+            margin-top: 0;
+            font-size: 1.5rem;
+        }
+        
+        .option-card p {
+            color: #7f8c8d;
+            margin-bottom: 25px;
+            flex-grow: 1;
+        }
+        
+        .btn {
+            display: inline-block;
+            background-color: #3498db;
+            color: white;
+            text-decoration: none;
+            padding: 12px 24px;
+            border-radius: 50px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+        
+        .btn:hover {
+            background-color: #2980b9;
+            transform: scale(1.05);
+        }
+        
+        footer {
+            text-align: center;
+            margin-top: 40px;
+            color: #7f8c8d;
+            font-size: 0.9rem;
+        }
+
+        .user-nav {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+        }
+
+        .user-info {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            color: #2c3e50;
+            font-weight: 500;
+        }
+
+        .logout-btn {
+            background-color: #e74c3c;
+            color: white;
+            padding: 8px 16px;
+            border-radius: 20px;
+            text-decoration: none;
+            font-size: 14px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        .logout-btn:hover {
+            background-color: #c0392b;
+            transform: scale(1.05);
+        }
+
+        .auth-links {
+            display: flex;
+            gap: 10px;
+        }
+
+        .auth-link {
+            padding: 8px 16px;
+            border-radius: 20px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 14px;
+            transition: all 0.3s ease;
+            border: 2px solid #3498db;
+            color: #3498db;
+        }
+
+        .auth-link:hover {
+            transform: scale(1.05);
+        }
+
+        .auth-link.signup {
+            background-color: #3498db;
+            color: white;
+        }
+
+        .auth-link.signup:hover {
+            background-color: #2980b9;
+        }
+
+        .container {
+            position: relative;
+        }
+
+        .alert {
+            padding: 12px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            font-weight: 500;
+        }
+
+        .alert-error {
+            background-color: #f8d7da;
+            color: #721c24;
+            border: 1px solid #f5c6cb;
+        }
+
+        .alert-success {
+            background-color: #d4edda;
+            color: #155724;
+            border: 1px solid #c3e6cb;
+        }
+
+        .alert-info {
+            background-color: #d1ecf1;
+            color: #0c5460;
+            border: 1px solid #bee5eb;
+        }
+        
+        .icon {
+            font-size: 3rem;
+            margin-bottom: 15px;
+            color: #3498db;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div class="user-nav">
+                {% if current_user %}
+                    <div class="user-info">
+                        <span>Welcome, {{ current_user }}!</span>
+                        <a href="{{ url_for('logout') }}" class="logout-btn">Logout</a>
+                    </div>
+                {% else %}
+                    <div class="auth-links">
+                        <a href="{{ url_for('login') }}" class="auth-link">Login</a>
+                        <a href="{{ url_for('signup') }}" class="auth-link signup">Sign Up</a>
+                    </div>
+                {% endif %}
+            </div>
+            <h1>Advanced Text Analysis Tool</h1>
+            <p class="subtitle">Detect plagiarism from local databases and web sources, plus AI-generated content detection</p>
+        </header>
+
+        {% with messages = get_flashed_messages(with_categories=true) %}
+            {% if messages %}
+                {% for category, message in messages %}
+                    <div class="alert alert-{{ category }}">
+                        {{ message }}
+                    </div>
+                {% endfor %}
+            {% endif %}
+        {% endwith %}
+        
+        <div class="usage-info" style="background: #f8f9fa; border: 1px solid #dee2e6; border-radius: 8px; padding: 15px; margin: 20px 0; text-align: center;">
+            <h3 style="color: #495057; margin-top: 0;">📊 Daily Usage Limit</h3>
+            {% if current_user %}
+                <p style="color: #6c757d; margin-bottom: 10px;">Welcome back, <strong>{{ current_user }}</strong>! You can analyze up to <strong>15 documents per day</strong> with your account.</p>
+                <p style="color: #28a745; font-size: 14px; margin-bottom: 10px;">✅ <strong>Account Benefits:</strong> Personal usage tracking, saved preferences, and priority support</p>
+            {% else %}
+                <p style="color: #6c757d; margin-bottom: 10px;">You can analyze up to <strong>15 documents per day</strong> as a guest user.</p>
+                <p style="color: #007bff; font-size: 14px; margin-bottom: 10px;">💡 <strong>Create an account</strong> for personal usage tracking and better experience!</p>
+                <div style="margin-top: 10px;">
+                    <a href="{{ url_for('signup') }}" style="background: #007bff; color: white; padding: 8px 16px; border-radius: 20px; text-decoration: none; font-weight: 500; margin-right: 10px;">Sign Up Free</a>
+                    <a href="{{ url_for('login') }}" style="color: #007bff; text-decoration: none; font-weight: 500;">Login</a>
+                </div>
+            {% endif %}
+            <a href="{{ url_for('usage_status') }}" style="color: #007bff; text-decoration: none; font-weight: 500; display: block; margin-top: 10px;">Check Your Current Usage →</a>
+        </div>
+
+        <div class="options">
+            <div class="option-card">
+                <div class="icon">📝</div>
+                <h2>Text Input</h2>
+                <p>Enter text directly for quick analysis. Includes local database and web source checking. Perfect for shorter content up to 100 words.</p>
+                <a href="{{ url_for('text_input') }}" class="btn">Use Text Input</a>
+            </div>
+
+            <div class="option-card">
+                <div class="icon">📄</div>
+                <h2>File Upload</h2>
+                <p>Upload a .txt file for comprehensive analysis. Searches both local research database and web sources for potential matches.</p>
+                <a href="{{ url_for('file_upload') }}" class="btn">Use File Upload</a>
+            </div>
+        </div>
+        
+        <footer>
+            <p>Plagiarism &amp; AI Content Detector &copy; 2023</p>
+        </footer>
+    </div>
+</body>
+</html>

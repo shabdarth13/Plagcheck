@@ -1,0 +1,86 @@
+See discussions, stats, and author profiles for this publication at: https://www.researchgate.net/publication/392758292
+Special Issue: Business Cycles Modeling in Mathematics
+Research Proposal · June 2025
+DOI: 10.13140/RG.2.2.20590.11846
+
+CITATIONS	READS
+0 5
+1 author:
+Giuseppe Orlando
+University of Bari Aldo Moro
+210 PUBLICATIONS   980 CITATIONS   
+SEE PROFILE
+All content following this page was uploaded by Giuseppe Orlando on 17 June 2025.
+The user has requested enhancement of the downloaded file.
+
+Special Issue: Business Cycles Modeling in Mathematics
+
+Guest Editor
+Prof. Giuseppe Orlando
+Department of Economics and Finance (DEF) of the University of Bari, Italy
+Email: giuseppe.orlando@uniba.it (mailto:giuseppe.orlando@uniba.it)
+Manuscript Topics
+This special issue is devoted to the mathematical modeling and analysis of business cycles — a central phenomenon in economic systems where periods of expansion and contraction alternate in recurring but complex patterns. Despite efforts to achieve equilibrium, market economies exhibit persistent oscillatory behavior driven by endogenous mechanisms, time delays, nonlinear feedbacks, and increasing global interconnections. We invite high-quality research papers that address the modeling, analysis, simulation, and empirical validation of business cycles using mathematical, computational, and interdisciplinary approaches. Relevant topics include, but are not limited to:
+• Mathematical Modeling of Business Cycles Formulation and analysis of mathematical modelsdescribing cyclical behaviors in macroeconomic variables such as GDP, investment, employment, and capital flows, including both continuous (ODE, DDE) and discrete-time models.
+• Classical and Modern Cycle Theories Studies on Kitchin (2–4 years), Juglar (7–12 years),Kuznets (16–25 years), and Kondratieff (40–60 years) cycles; interactions between short, medium, and long-term cycles; endogenous growth models; Keynesian IS-LM-based cycles.  
+• Time Lags and Feedback Mechanisms Investigation of delays between investment decisions,capital accumulation, production capacity, and returns on capital as drivers of cyclical behavior; inertia in information propagation and decision-making processes.  
+• Nonlinear Dynamics and Chaos in Economic Systems Application of nonlinear differentialequations, multistability, bifurcations, and chaotic attractors in the study of macroeconomic cycles; sensitivity to initial conditions and complex endogenous fluctuations.  
+• Coupled Economic Systems and Synchronization of Business Cycles Modeling of interactionsbetween multiple economies through capital flows, trade, and financial markets; analysis of synchronization phenomena, structural changes, and collective dynamics under globalization; coupling effects analyzed through tools such as the Master Stability Function.  
+• Stability Analysis and Control of Cycles Mathematical approaches to the stability andstabilization of business cycles; identification of stable and unstable parameter regimes in coupled economic systems.  
+• Computational Methods and Simulation Studies Numerical simulations of mathematicalmodels; sensitivity analyses; calibration with empirical data; software tools for complex systems modeling.  
+• Applications and Empirical Validation Application of models to real-world economic data;forecasting of business cycles; assessment of policy interventions aimed at stabilizing economies and minimizing systemic risk.
+We especially welcome submissions that bridge theory and practice, propose innovative mathematical methodologies, and contribute to a deeper understanding of complex business cycle dynamics in modern interconnected economies.
+Keywords
+Business cycles
+Economic dynamics
+Mathematical modeling
+Nonlinear dynamical systems
+Ordinary differential equations (ODEs)
+Time delays
+IS-LM models
+Kitchin, Juglar, Kuznets, Kondratieff cycles
+Multistability
+Synchronization of economies
+Master Stability Function
+Bifurcations
+Stability analysis
+Globalization and systemic risk
+Computational economics
+Macrodynamics
+Chaotic behavior in economics
+Coupled economic systems
+Applied mathematics in economics
+Instructions for authors https://www.aimspress.com/math/news/solo-detail/instructionsforauthors	 	(https:// www.aimspress.com/math/news/solo-detail/instructionsforauthors) Please submit your manuscript to online submission system https://aimspress.jams.pub/ (https://aimspress.jams.pub/)
+Paper Submission
+View publication stats
+All manuscripts will be peer-reviewed before their acceptance for publication. The deadline for manuscript submission is 31 May 2026
+Published Papers(0)
+	 (/journal/math)	AIMS Mathematics (/journal/math)
+1.83.1	Submit a Paper	 (https://aimspress.jams.pub/)	Reviewer Login	 (https://aimspress.jams.pub/)Email Alert (/public/math/email-alert)About AIMS Press (/index/news/solo-detail/about)
+Open Access Policy (/index/news/solo-detail/openaccesspolicy)
+Contact us (/index/news/solo-detail/contact)
+Copyright © AIMS Press
+
+
+
+
+
+
+
+
+
+
+
+
+AIMS Mathematics	https://www.aimspress.com/math/article/7032/special-articles
+
+AIMS Mathematics	https://www.aimspress.com/math/article/7032/special-articles
+
+1 of 3	17/06/2025, 12:09
+
+1 of 3	17/06/2025, 12:09
+
+AIMS Mathematics	https://www.aimspress.com/math/article/7032/special-articles
+
+1 of 3	17/06/2025, 12:09
+
