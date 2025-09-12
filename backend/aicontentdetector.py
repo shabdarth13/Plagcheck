@@ -12,7 +12,7 @@ def detect_ai_content(text):
         
         # Fallback to hardcoded path if file doesn't exist
         if not os.path.exists(data_path):
-            data_path = "DIRECTORY WHERE Training_Essay_Data.csv IS STORED"
+            data_path = "AI CONTENT"#path
         
         print(f"DEBUG: Using AI content dataset: {data_path}")
         
@@ -94,3 +94,4 @@ def detect_ai_content(text):
         print(f"ERROR in AI content detection: {str(e)}")
         print(traceback.format_exc())
         return f"<div style='background: rgba(220, 53, 69, 0.1); border: 1px solid #DC3545; border-radius: 8px; padding: 20px; margin: 10px 0; text-align: center;'><h3 style='color: #DC3545; margin: 0; font-size: 18px;'>❌ AI DETECTION ERROR</h3><p style='color: #666; margin: 10px 0 0 0;'>Error in AI content detection: {str(e)}</p></div>"
+
