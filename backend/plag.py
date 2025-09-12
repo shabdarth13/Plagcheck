@@ -57,7 +57,7 @@ def check_plagiarism(query_text):
         
         # Fallback to hardcoded path if folder doesn't exist
         if not os.path.exists(folder):
-            folder = "DIRECTORY OF RESERACH DATA FOLDER"
+            folder = "research data"
         
         print(f"DEBUG: Using research data folder: {folder}")
         
@@ -143,3 +143,4 @@ def check_plagiarism(query_text):
         print(f"ERROR in plagiarism detection: {str(e)}")
         print(traceback.format_exc())
         return f"<div style='background: rgba(220, 53, 69, 0.1); border: 1px solid #DC3545; border-radius: 8px; padding: 20px; margin: 10px 0; text-align: center;'><h3 style='color: #DC3545; margin: 0; font-size: 18px;'>❌ SYSTEM ERROR</h3><p style='color: #666; margin: 10px 0 0 0;'>Error in plagiarism detection: {str(e)}</p></div>"
+
